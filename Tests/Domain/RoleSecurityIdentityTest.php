@@ -15,7 +15,7 @@ use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
 
-class RoleSecurityIdentityTest extends \PHPUnit_Framework_TestCase
+class RoleSecurityIdentityTest extends \PHPUnit\Framework\TestCase
 {
     public function testConstructor()
     {

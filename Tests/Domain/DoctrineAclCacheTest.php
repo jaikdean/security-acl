@@ -18,7 +18,7 @@ use Symfony\Component\Security\Acl\Domain\Acl;
 use Symfony\Component\Security\Acl\Domain\DoctrineAclCache;
 use Doctrine\Common\Cache\ArrayCache;
 
-class DoctrineAclCacheTest extends \PHPUnit_Framework_TestCase
+class DoctrineAclCacheTest extends \PHPUnit\Framework\TestCase
 {
     protected $permissionGrantingStrategy;
 

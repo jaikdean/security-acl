@@ -36,10 +36,12 @@
             "/Tests/"
         ]
     },
-    "minimum-stability": "dev",
+    "autoload-dev": {
+        "psr-4": { "Symfony\\Component\\Security\\Acl\\Tests\\": "Tests/" }
+    },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0-dev"
+            "dev-master": "4.0-dev"
         }
     }
 }

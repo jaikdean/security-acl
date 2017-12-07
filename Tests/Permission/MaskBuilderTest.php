@@ -13,7 +13,7 @@ namespace Symfony\Component\Security\Acl\Tests\Permission;
 
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
-class MaskBuilderTest extends \PHPUnit_Framework_TestCase
+class MaskBuilderTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @expectedException \InvalidArgumentException

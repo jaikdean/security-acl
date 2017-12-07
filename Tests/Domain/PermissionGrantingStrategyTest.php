@@ -18,7 +18,7 @@ use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\PermissionGrantingStrategy;
 use Symfony\Component\Security\Acl\Exception\NoAceFoundException;
 
-class PermissionGrantingStrategyTest extends \PHPUnit_Framework_TestCase
+class PermissionGrantingStrategyTest extends \PHPUnit\Framework\TestCase
 {
     public function testIsGrantedObjectAcesHavePriority()
     {
@@ -107,7 +107,7 @@ class PermissionGrantingStrategyTest extends \PHPUnit_Framework_TestCase
         $acl = $this->getAcl($strategy);
         $sid = new UserSecurityIdentity('johannes', 'Foo');
 
-        $logger = $this->getMock('Symfony\Component\Security\Acl\Model\AuditLoggerInterface');
+        $logger = $this->createMock('Symfony\Component\Security\Acl\Model\AuditLoggerInterface');
         $logger
             ->expects($this->once())
             ->method('logIfNeeded')
@@ -126,7 +126,7 @@ class PermissionGrantingStrategyTest extends \PHPUnit_Framework_TestCase
         $acl = $this->getAcl($strategy);
         $sid = new UserSecurityIdentity('johannes', 'Foo');
 
-        $logger = $this->getMock('Symfony\Component\Security\Acl\Model\AuditLoggerInterface');
+        $logger = $this->createMock('Symfony\Component\Security\Acl\Model\AuditLoggerInterface');
         $logger
             ->expects($this->once())
             ->method('logIfNeeded')

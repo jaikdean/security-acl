@@ -20,7 +20,7 @@ use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 use Symfony\Component\Security\Acl\Voter\AclVoter;
 
-class AclVoterTest extends \PHPUnit_Framework_TestCase
+class AclVoterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider getSupportsAttributeTests
@@ -213,7 +213,7 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('findAcl')
             ->with($this->equalTo($oid), $this->equalTo($sids))
-            ->will($this->returnValue($acl = $this->getMock('Symfony\Component\Security\Acl\Model\AclInterface')))
+            ->will($this->returnValue($acl = $this->createMock('Symfony\Component\Security\Acl\Model\AclInterface')))
         ;
 
         $acl
@@ -259,7 +259,7 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('findAcl')
             ->with($this->equalTo($oid), $this->equalTo($sids))
-            ->will($this->returnValue($acl = $this->getMock('Symfony\Component\Security\Acl\Model\AclInterface')))
+            ->will($this->returnValue($acl = $this->createMock('Symfony\Component\Security\Acl\Model\AclInterface')))
         ;
 
         $acl
@@ -302,7 +302,7 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('findAcl')
             ->with($this->equalTo($oid), $this->equalTo($sids))
-            ->will($this->returnValue($acl = $this->getMock('Symfony\Component\Security\Acl\Model\AclInterface')))
+            ->will($this->returnValue($acl = $this->createMock('Symfony\Component\Security\Acl\Model\AclInterface')))
         ;
 
         $acl
@@ -348,7 +348,7 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('findAcl')
             ->with($this->equalTo($oid), $this->equalTo($sids))
-            ->will($this->returnValue($acl = $this->getMock('Symfony\Component\Security\Acl\Model\AclInterface')))
+            ->will($this->returnValue($acl = $this->createMock('Symfony\Component\Security\Acl\Model\AclInterface')))
         ;
 
         $acl
@@ -389,7 +389,7 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('findAcl')
             ->with($this->equalTo($oid), $this->equalTo($sids))
-            ->will($this->returnValue($acl = $this->getMock('Symfony\Component\Security\Acl\Model\AclInterface')))
+            ->will($this->returnValue($acl = $this->createMock('Symfony\Component\Security\Acl\Model\AclInterface')))
         ;
 
         $acl
@@ -404,15 +404,15 @@ class AclVoterTest extends \PHPUnit_Framework_TestCase
 
     protected function getToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        return $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 
     protected function getVoter($allowIfObjectIdentityUnavailable = true, $alwaysContains = true)
     {
-        $provider = $this->getMock('Symfony\Component\Security\Acl\Model\AclProviderInterface');
-        $permissionMap = $this->getMock('Symfony\Component\Security\Acl\Permission\PermissionMapInterface');
-        $oidStrategy = $this->getMock('Symfony\Component\Security\Acl\Model\ObjectIdentityRetrievalStrategyInterface');
-        $sidStrategy = $this->getMock('Symfony\Component\Security\Acl\Model\SecurityIdentityRetrievalStrategyInterface');
+        $provider = $this->createMock('Symfony\Component\Security\Acl\Model\AclProviderInterface');
+        $permissionMap = $this->createMock('Symfony\Component\Security\Acl\Permission\PermissionMapInterface');
+        $oidStrategy = $this->createMock('Symfony\Component\Security\Acl\Model\ObjectIdentityRetrievalStrategyInterface');
+        $sidStrategy = $this->createMock('Symfony\Component\Security\Acl\Model\SecurityIdentityRetrievalStrategyInterface');
 
         if ($alwaysContains) {
             $permissionMap

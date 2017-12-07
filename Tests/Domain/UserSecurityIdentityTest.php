@@ -14,7 +14,7 @@ namespace Symfony\Component\Security\Acl\Tests\Domain;
 use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 
-class UserSecurityIdentityTest extends \PHPUnit_Framework_TestCase
+class UserSecurityIdentityTest extends \PHPUnit\Framework\TestCase
 {
     public function testConstructor()
     {
@@ -52,7 +52,7 @@ class UserSecurityIdentityTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('foo'))
         ;
 
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
             ->expects($this->any())
             ->method('getUser')

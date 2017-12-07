@@ -15,7 +15,7 @@ use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\SecurityIdentityRetrievalStrategy;
 
-class SecurityIdentityRetrievalStrategyTest extends \PHPUnit_Framework_TestCase
+class SecurityIdentityRetrievalStrategyTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider getSecurityIdentityRetrievalTests
@@ -109,7 +109,11 @@ class SecurityIdentityRetrievalStrategyTest extends \PHPUnit_Framework_TestCase
 
     protected function getAccount($username, $class)
     {
-        $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface', array(), array(), $class);
+        $account = $this
+            ->getMockBuilder('Symfony\Component\Security\Core\User\UserInterface')
+            ->setMockClassName($class)
+            ->getMock()
+        ;
         $account
             ->expects($this->any())
             ->method('getUsername')
@@ -121,7 +125,7 @@ class SecurityIdentityRetrievalStrategyTest extends \PHPUnit_Framework_TestCase
 
     protected function getStrategy(array $roles = array(), $authenticationStatus = 'fullFledged')
     {
-        $roleHierarchy = $this->getMock('Symfony\Component\Security\Core\Role\RoleHierarchyInterface');
+        $roleHierarchy = $this->createMock('Symfony\Component\Security\Core\Role\RoleHierarchyInterface');
         $roleHierarchy
             ->expects($this->once())
             ->method('getReachableRoles')
@@ -129,7 +133,7 @@ class SecurityIdentityRetrievalStrategyTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($roles))
         ;
 
-        $trustResolver = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface', array(), array('', ''));
+        $trustResolver = $this->createMock('Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface', array(), array('', ''));
 
         $trustResolver
             ->expects($this->at(0))

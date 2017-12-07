@@ -30,7 +30,7 @@ use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 /**
  * @requires extension pdo_sqlite
  */
-class MutableAclProviderTest extends \PHPUnit_Framework_TestCase
+class MutableAclProviderTest extends \PHPUnit\Framework\TestCase
 {
     protected $con;
 
@@ -255,7 +255,7 @@ class MutableAclProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testUpdateDoesNothingWhenThereAreNoChanges()
     {
-        $con = $this->getMock('Doctrine\DBAL\Connection', array(), array(), '', false);
+        $con = $this->createMock('Doctrine\DBAL\Connection', array(), array(), '', false);
         $con
             ->expects($this->never())
             ->method('beginTransaction')

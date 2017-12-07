@@ -20,7 +20,7 @@ use Doctrine\DBAL\DriverManager;
 /**
  * @requires extension pdo_sqlite
  */
-class AclProviderTest extends \PHPUnit_Framework_TestCase
+class AclProviderTest extends \PHPUnit\Framework\TestCase
 {
     protected $con;
     protected $insertClassStmt;

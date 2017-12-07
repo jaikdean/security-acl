@@ -20,7 +20,7 @@ use Doctrine\DBAL\DriverManager;
 /**
  * @group benchmark
  */
-class AclProviderBenchmarkTest extends \PHPUnit_Framework_TestCase
+class AclProviderBenchmarkTest extends \PHPUnit\Framework\TestCase
 {
     /** @var \Doctrine\DBAL\Connection */
     protected $con;
